@@ -1,5 +1,14 @@
 #!/usr/bin/env venv/bin/python3
 
+""" Restores video and photo file's creation and modification timestamp to the correct value.
+
+For video files uses filename's pattern 'yyyyMMdd_hhmmss'. Adds its duration to timestamp.
+For photos an EXIF data, and if not exists the uses filename's pattern.
+
+usage: timestamp.py [File name mask]
+"""
+
+
 import os
 import sys
 from datetime import datetime, timedelta
@@ -7,13 +16,14 @@ from pathlib import Path
 
 from moviepy.editor import VideoFileClip
 
-"""
-Decription for the future releases:
-Restores file's creation and modification dates back to the original 
-value from EXIF. If exif not exists, and for video files uses filename's pattern 'yyyyMMdd_hhmmss'.
-For video file adds its duration to modification date.
-usage: timestamp.py [File name mask]
-"""
+
+__date__ = "2019-11-20"
+__author__ = "Viktor Volisov"
+#__copyright__ = "2019, Viktor Volisov"
+#__credits__ = "[Viktor Volisov]"
+#__license__ = "GPL"
+__version__ = "0.0.1"
+
 __description = """Restores video file's creation and modification dates back to the original 
 value from filename's pattern 'yyyyMMdd_hhmmss'. Also adds its duration to the modification date.
 usage: timestamp.py [File name mask]"""
